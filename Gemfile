@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+gem 'tzinfo-data'
 gem 'rails', '~> 5.2.1'
 gem 'rake', '~> 12.0'
 # Use postgres
