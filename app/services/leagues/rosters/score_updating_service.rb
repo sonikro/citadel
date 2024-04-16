@@ -35,6 +35,10 @@ module Leagues
           end
 
           away = roster_id_map[match.away_team_id]
+
+          # Ignore matches for teams in different divisions
+          next if home.nil? || away.nil?
+
           home_stats, away_stats = build_match_stats(match)
           roster_results[home].push home_stats
           roster_results[away].push away_stats
