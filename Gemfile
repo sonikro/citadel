@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 5.2.1'
+gem 'rails', '~> 6.0.0'
 gem 'rake', '~> 12.0'
 # Use postgres
 gem 'pg', '~> 1.0'
@@ -10,11 +10,11 @@ gem 'pg', '~> 1.0'
 gem 'active_record_union', '~> 1.3'
 gem 'ancestry'
 # SASS for stylesheets
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '~> 6'
 # Compress JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.2.0'
+gem 'coffee-rails', '~> 5'
 # Easy styling
 gem 'bootstrap', '~> 4.5.0'
 # Easy bootstrap forms
@@ -53,7 +53,7 @@ gem 'tournament-system', '~> 2.0'
 
 group :test do
   # Use rspec for tests
-  gem 'rspec-rails', '~> 3.8'
+  gem 'rspec-rails', '~> 5'
 
   # Parallelize tests
   gem 'parallel_tests'
@@ -68,7 +68,7 @@ group :test do
   gem 'database_cleaner'
 
   # Easy database manipulation
-  gem 'factory_bot_rails', '~> 4'
+  gem 'factory_bot_rails', '~> 5'
 
   # Web feature testing
   gem 'capybara'

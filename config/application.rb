@@ -22,6 +22,10 @@ module Ozfortress
     # Make view helpers, view specific
     config.action_controller.include_all_helpers = false
 
+    # New lookup logic
+    config.add_autoload_paths_to_load_path = false
+    config.autoloader = :zeitwerk
+
     # Use dynamic error pages
     config.exceptions_app = self.routes
 
