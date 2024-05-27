@@ -30,7 +30,7 @@ module Ozfortress
     config.exceptions_app = self.routes
 
     # News config file
-    config.news = config_for(:news)
+    config.news = config_for(:news).with_indifferent_access
 
     # config.middleware.use 'BadMultipartFormDataSanitizer'
     config.middleware.insert_before Rack::Runtime, BadMultipartFormDataSanitizer
