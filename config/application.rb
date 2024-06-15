@@ -1,5 +1,5 @@
 
-# Required for some fucking reason
+
 require 'uri'
 require_relative 'boot'
 
@@ -8,6 +8,9 @@ require 'rails/all'
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
+
+# Include middleware
+require './lib/middleware/bad_multipart_form_data_sanitizer'
 
 module Ozfortress
   class Application < Rails::Application
@@ -27,5 +30,8 @@ module Ozfortress
 
     # News config file
     config.news = config_for(:news)
+
+    # config.middleware.use 'BadMultipartFormDataSanitizer'
+    config.middleware.insert_before Rack::Runtime, BadMultipartFormDataSanitizer
   end
 end
