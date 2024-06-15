@@ -1,0 +1,28 @@
+version: '3'
+services:
+  citadel:
+    restart: always
+    build:
+      context: ./
+      args:
+        SECRET_KEY_BASE: changeme
+        STEAM_API_KEY: xxx
+    env_file: .env
+    ports:
+      - 80:80
+    depends_on:
+      - database
+    volumes:
+      - citadel-uploads:/citadel/public/uploads
+  database:
+    restart: always
+    image: postgres:9.5
+    environment:
+      - POSTGRES_USER=citadel
+      - POSTGRES_PASSWORD=changeme
+      - POSTGRES_DB=citadel
+    volumes:
+      - database-data:/var/lib/postgresql/data/ # persist data even if container shuts down
+volumes:
+  database-data: # named volumes can be managed easier using docker-compose
+  citadel-uploads:

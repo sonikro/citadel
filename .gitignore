@@ -80,3 +80,4 @@ bower.json
 # CarrierWave
 public/uploads
 spec/carrierwave
+.env

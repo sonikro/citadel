@@ -31,13 +31,19 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Send mails to letter opener
-  config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.delivery_method = :smtp
 
   # Default from
-  config.action_mailer.default_options = { from: 'no-reply@localhost' }
-
+  config.action_mailer.default_options = { from: ENV['CITADEL_EMAIL_FROM'] }
+  config.action_mailer.smtp_settings = {
+    address: ENV['CITADEL_EMAIL_SMTP_HOST'],
+    port: ENV['CITADEL_EMAIL_SMTP_PORT'],
+    user_name: ENV['CITADEL_EMAIL_SMTP_USERNAME'],
+    password: ENV['CITADEL_EMAIL_SMTP_PASSWORD'],
+    domain: ENV['CITADEL_EMAIL_DOMAIN']
+  }
   # Default to this host for urls in mail views
-  config.action_mailer.default_url_options = { host: 'localhost:3000' }
+  config.action_mailer.default_url_options = { host: ENV['CITADEL_EMAIL_DEFAULT_URL'] }
 
   config.action_mailer.perform_caching = false
 
