@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
 gem 'rails', '~> 7.1.0'
-gem 'sprockets-rails'
 gem 'rake', '~> 12.0'
+gem 'sprockets-rails'
 # Use postgres
 gem 'pg', '~> 1.0'
 # Fast loading
@@ -79,9 +79,9 @@ group :test do
   # Keep codebase clean
   gem 'haml_lint', require: false
   gem 'rails_best_practices', require: false
-  gem 'reek', '~> 5', require: false
-  gem 'rubocop', '~> 0.58', require: false
-  gem 'rubocop-rails', '~> 2.2.1', require: false
+  gem 'reek', '~> 6', require: false
+  gem 'rubocop', '~> 1.64.1', require: false
+  gem 'rubocop-rails', '~> 2.25.0', require: false
 
   gem 'codecov', require: false
 end
