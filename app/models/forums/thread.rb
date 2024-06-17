@@ -35,7 +35,7 @@ module Forums
     before_update do
       if hidden_changed?
         sign = hidden? ? :- : :+
-        ActiveRecord::Base.connection.exec_update(<<-SQL, 'SQL', [[nil, id]])
+        ActiveRecord::Base.connection.exec_update(<<-SQL, 'SQL', [id])
           UPDATE users
           SET public_forums_posts_count = public_forums_posts_count #{sign} (
             SELECT COUNT(1) FROM forums_posts WHERE thread_id = $1 AND created_by_id = users.id)

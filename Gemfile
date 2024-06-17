@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 6.1.0'
+gem 'rails', '~> 7.1.0'
+gem 'sprockets-rails'
 gem 'rake', '~> 12.0'
 # Use postgres
 gem 'pg', '~> 1.0'
@@ -50,10 +51,12 @@ gem 'active_model_serializers', '~> 0.10.0'
 gem 'counter_culture', '~> 2.0'
 # Tournament systems
 gem 'tournament-system', '~> 2.0'
+# Backwards compatibility with ruby 2
+gem 'scanf'
 
 group :test do
   # Use rspec for tests
-  gem 'rspec-rails', '~> 5'
+  gem 'rspec-rails', '~> 6'
 
   # Parallelize tests
   gem 'parallel_tests'
@@ -68,7 +71,7 @@ group :test do
   gem 'database_cleaner'
 
   # Easy database manipulation
-  gem 'factory_bot_rails', '~> 5'
+  gem 'factory_bot_rails', '~> 6'
 
   # Web feature testing
   gem 'capybara'

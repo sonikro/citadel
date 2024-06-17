@@ -89,6 +89,6 @@ class PermissionsController < ApplicationController
   end
 
   def redirect_back(options = {})
-    super({ fallback_location: permissions_path }.merge(options))
+    super(**{ fallback_location: permissions_path }.merge(options))
   end
 end
