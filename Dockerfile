@@ -7,11 +7,11 @@ RUN apt-get update -y
 RUN apt-get install -y git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev  libffi-dev
 RUN apt-get install -y libgdbm-dev libncurses5-dev automake libtool bison libffi-dev gnupg2 libpq-dev postgresql-common libmagickwand-dev imagemagick
 #Instal NodeJS
-RUN curl -sL https://deb.nodesource.com/setup_11.x  | bash -
+RUN curl -sL https://deb.nodesource.com/setup_20.x  | bash -
 RUN apt-get -y install nodejs
 
 #Install Bundler and download dependencies
-RUN gem install bundler
+RUN gem install bundler -v 2.3.27
 RUN mkdir /citadel
 WORKDIR /citadel
 COPY Gemfile* ./

@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  app:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ../..:/workspaces:cached
+    command: sleep infinity
+    env_file:
+      - ../.env
+
+  postgres:
+    deploy:
+      resources:
+        limits:
+          memory: 2048M
+    image: postgres:9
+    ports:
+      - '5432:5432/tcp'
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: citadel
+      POSTGRES_PASSWORD: citadel
+      PGPASSWORD: citadel
+      POSTGRES_DB: citadel
+
+volumes:
+  postgres-data:
