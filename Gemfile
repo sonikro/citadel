@@ -85,6 +85,8 @@ group :test do
   gem 'reek', '~> 6', require: false
   gem 'rubocop', '~> 1.64.1', require: false
   gem 'rubocop-rails', '~> 2.25.0', require: false
+  # 1.14 is broken. Required by reek
+  gem 'dry-schema', '~> 1.13.0', require: false
 
   gem 'codecov', require: false
 end
