@@ -4,7 +4,7 @@ describe 'leagues/rosters/new' do
   let(:team) { create(:team) }
   let(:team2) { create(:team) }
   let(:league) { create(:league) }
-  let(:div) { create(:league_division, league: league) }
+  let(:div) { create(:league_division, league:) }
   let(:captain) { create(:user) }
 
   before do
@@ -22,7 +22,7 @@ describe 'leagues/rosters/new' do
   end
 
   describe 'selected team' do
-    let(:roster) { create(:league_roster, team: team, division: div) }
+    let(:roster) { create(:league_roster, team:, division: div) }
 
     before do
       team.users << roster.players[0].user
