@@ -54,8 +54,8 @@
 
               / Manually display errors.
               - if player && has_errors
-                - player.errors.each_value do |error|
-                  %span.help-block= error
+                - player.errors.full_messages.each do |msg|
+                  %span.help-block= msg
 
         .d-flex.justify-content-end
           = link_to 'Cancel', league_path(@league), class: 'btn btn-link mr-2'
