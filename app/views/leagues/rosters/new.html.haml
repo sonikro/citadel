@@ -31,11 +31,11 @@
 
   .card
     .card-body
-      = bootstrap_form_for @roster, as: :roster,
-          url: league_rosters_path(@league, team_id: @team.id) do |f|
+      = bootstrap_form_for @roster, as:  :roster,
+                                    url: league_rosters_path(@league, team_id: @team.id) do |f|
         = f.text_field :name
         = f.select :division_id, divisions_select(@league), label: 'Desired Division'
-        = render 'form', f: f
+        = render('form', f:)
 
         = f.form_group :players, label: { text: 'Players' } do
           / Check box list for players from the team to add to the roster

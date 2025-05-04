@@ -19,7 +19,7 @@
   .card-header General
   .card-body
     = bootstrap_form_for @user, method: :patch do |f|
-      = render 'form', f: f, user: @user, user_p: user_p
+      = render('form', f:, user: @user, user_p:)
 
       .d-flex.justify-content-end
         = link_to 'Cancel', user_path(@user), class: 'btn btn-link mr-2'
@@ -30,7 +30,7 @@
     .card-header.text-white.bg-danger Admin Only
     .card-body
       = bootstrap_form_for @user, method: :patch do |f|
-        = render 'admin_form', f: f, user: @user, user_p: user_p
+        = render('admin_form', f:, user: @user, user_p:)
 
         .d-flex.justify-content-end
           = link_to 'Manage Bans', user_bans_path(@user), class: 'btn btn-warning mr-2'
@@ -43,9 +43,8 @@
       - notification = @user.notifications.new
       = bootstrap_form_for notification, url: user_notifications_path(user_id: @user.id), as: :notification,
                                          method: :post do |f|
-        = render 'users/notifications/form', f: f
+        = render('users/notifications/form', f:)
 
         .d-flex.justify-content-end
           = link_to 'Cancel', user_path(@user), class: 'btn btn-link mr-2'
           = f.primary 'Send Notification'
-

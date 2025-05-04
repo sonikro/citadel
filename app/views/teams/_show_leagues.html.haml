@@ -9,7 +9,7 @@
         .alert-heading Notice
         .markdown= roster_p.notice
 
-    = render 'teams/show_roster', team: team, roster: roster, roster_p: roster_p, users: users, matches: matches
+    = render('teams/show_roster', team:, roster:, roster_p:, users:, matches:)
 
 - unless past_rosters.empty?
   %h5 Past Rosters
@@ -18,4 +18,4 @@
     - roster_p = present(roster)
     - matches = past_roster_matches[roster] || []
 
-    = render 'teams/show_roster', team: team, roster: roster, roster_p: roster_p, users: users, matches: matches
+    = render('teams/show_roster', team:, roster:, roster_p:, users:, matches:)

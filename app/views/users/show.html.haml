@@ -70,14 +70,13 @@
 
 .tab-content.mt-3
   .tab-pane.show.active#info{ role: 'tabpanel', aria: { labelledby: 'info-tab' } }
-    = render 'users/show_info', user: @user, user_p: user_p, matches: @matches,
+    = render 'users/show_info', user: @user, user_p:, matches: @matches,
                                 teams: @teams, team_transfers: @team_transfers
   - unless @roster_transfers.empty?
     .tab-pane#leagues{ role: 'tabpanel', aria: { labelledby: 'leagues-tab' } }
       = render 'users/show_leagues', user: @user, roster_transfers: @roster_transfers
   .tab-pane#forums{ role: 'tabpanel', aria: { labelledby: 'forums-tab' } }
     = render 'users/show_forums', user: @user, forums_posts: @forums_posts
-
 
 - if user_can_edit_users?
   %hr
