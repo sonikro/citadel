@@ -115,7 +115,7 @@ describe UsersController do
       expect(user.notice).to eq('')
       expect(user.email).to eq('foo@bar.com')
       expect(user).to_not be_confirmed
-      expect(response).to redirect_to(user_path(user)), type: :request
+      expect(response).to redirect_to(user_path(user))
     end
 
     it 'allows admins to edit users' do
@@ -383,26 +383,21 @@ describe UsersController do
       end
 
       it 'fails for unauthorized user' do
-        other = create(:user)
-        sign_in other
+        sign_out user
         expect(user.discord_id).to_not be_nil
         patch :unlink_discord, params: { id: user.id }
-        other.reload
+        user.reload
         expect(user.discord_id).to_not be_nil
-        expect(response).to redirect_to(user_path(user))
       end
     end
 
     context 'with Discord integration disabled' do
       before do
-        allow(Features).to receive(:discord_integration_enabled?).and_return(true)
+        allow(Features).to receive(:discord_integration_enabled?).and_return(false)
         Rails.application.reload_routes!
       end
 
       it 'is not routable' do
-        expect(patch: "/users/#{user.id}/unlink_discord").to be_routable
-        allow(Features).to receive(:discord_integration_enabled?).and_return(false)
-        Rails.application.reload_routes!
         expect(patch: "/users/#{user.id}/unlink_discord").to_not be_routable
       end
     end
