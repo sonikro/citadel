@@ -1,7 +1,7 @@
 name: Rails
 on:
   - push
-  - pull_requests
+  - pull_request
   - workflow_dispatch
 
 jobs:
