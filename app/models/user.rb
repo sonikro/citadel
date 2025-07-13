@@ -1,7 +1,6 @@
 require 'search'
 require 'auth'
 require 'steam_id'
-require 'features'
 
 class User < ApplicationRecord
   include Auth::Model
@@ -37,7 +36,7 @@ class User < ApplicationRecord
 
   devise :rememberable, :omniauthable, omniauth_providers: [
     :steam,
-    *(Features.discord_integration_enabled? ? :discord : []),
+    *(Rails.configuration.features.discord_integration ? :discord : []),
   ]
 
   validates :name, presence: true, uniqueness: true, length: { in: 1..64 }

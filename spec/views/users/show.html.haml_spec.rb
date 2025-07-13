@@ -70,7 +70,7 @@ describe 'users/show' do
 
   context 'with Discord integration enabled' do
     before do
-      allow(Features).to receive(:discord_integration_enabled?).and_return(true)
+      allow(Rails.configuration.features).to receive(:discord_integration).and_return(true)
       Rails.application.reload_routes!
     end
 
@@ -82,7 +82,7 @@ describe 'users/show' do
 
   context 'with Discord integration disabled' do
     before do
-      allow(Features).to receive(:discord_integration_enabled?).and_return(false)
+      allow(Rails.configuration.features).to receive(:discord_integration).and_return(false)
       Rails.application.reload_routes!
     end
     it 'does not render the Discord ID link' do

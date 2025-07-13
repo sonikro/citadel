@@ -1,5 +1,3 @@
-require 'features'
-
 class UsersController < ApplicationController
   include UsersPermissions
 

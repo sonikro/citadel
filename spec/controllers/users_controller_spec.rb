@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'features'
 
 describe UsersController do
   describe 'GET #index' do
@@ -370,7 +369,7 @@ describe UsersController do
 
     context 'with Discord integration enabled' do
       before do
-        allow(Features).to receive(:discord_integration_enabled?).and_return(true)
+        allow(Rails.configuration.features).to receive(:discord_integration).and_return(true)
         Rails.application.reload_routes!
         sign_in user
       end
@@ -393,7 +392,7 @@ describe UsersController do
 
     context 'with Discord integration disabled' do
       before do
-        allow(Features).to receive(:discord_integration_enabled?).and_return(false)
+        allow(Rails.configuration.features).to receive(:discord_integration).and_return(false)
         Rails.application.reload_routes!
       end
 

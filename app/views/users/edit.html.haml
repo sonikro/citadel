@@ -15,7 +15,7 @@
 
       = f.primary 'Request Name Change'
 
-- if Features.discord_integration_enabled?
+- if Rails.configuration.features.discord_integration
   .card.mb-3
     .card-header Connections
     .card-body

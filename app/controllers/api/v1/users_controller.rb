@@ -1,8 +1,6 @@
 module API
   module V1
     class UsersController < APIController
-      include Features
-
       def show
         @user = User.find(params[:id])
 

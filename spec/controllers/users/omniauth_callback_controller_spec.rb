@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'features'
 
 describe Users::OmniauthCallbacksController do
   describe 'POST #discord' do
@@ -7,7 +6,7 @@ describe Users::OmniauthCallbacksController do
     let(:discord_id) { 123 }
 
     before do
-      allow(Features).to receive(:discord_integration_enabled?).and_return(true)
+      allow(Rails.configuration.features).to receive(:discord_integration).and_return(true)
       sign_in user
       OmniAuth.config.add_mock(
         :discord,

@@ -35,7 +35,7 @@ module Ozfortress
     config.news = config_for(:news).with_indifferent_access
     
     # Features config file
-    config.features = config_for(:features).with_indifferent_access
+    config.features = config_for(:features)
 
     # config.middleware.use 'BadMultipartFormDataSanitizer'
     config.middleware.insert_before Rack::Runtime, BadMultipartFormDataSanitizer
