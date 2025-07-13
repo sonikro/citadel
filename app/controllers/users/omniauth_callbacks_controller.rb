@@ -1,5 +1,9 @@
 module Users
   class OmniauthCallbacksController < Devise::OmniauthCallbacksController
+    include UsersPermissions
+
+    before_action :require_login, only: [:discord]
+
     # Don't need to protect against forgery for omniauth logins
     skip_before_action :verify_authenticity_token
 
